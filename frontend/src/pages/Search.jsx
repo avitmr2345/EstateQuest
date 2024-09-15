@@ -10,8 +10,8 @@ export default function Search() {
     offer: false,
     parking: false,
     furnished: false,
-    sort: "created_at",
-    order: "desc",
+    sort: "",
+    order: "",
   });
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
@@ -42,8 +42,8 @@ export default function Search() {
         parking: parkingFromUrl === "true" ? true : false,
         furnished: furnishedFromUrl === "true" ? true : false,
         offer: offerFromUrl === "true" ? true : false,
-        sort: sortFromUrl || "created_at",
-        order: orderFromUrl || "desc",
+        sort: sortFromUrl || "name",
+        order: orderFromUrl || "asc",
       });
     }
 
@@ -91,9 +91,9 @@ export default function Search() {
     }
 
     if (e.target.id === "sort_order") {
-      const sort = e.target.value.split("_")[0] || "created_at";
+      const sort = e.target.value.split("_")[0];
 
-      const order = e.target.value.split("_")[1] || "desc";
+      const order = e.target.value.split("_")[1];
 
       setSidebardata({ ...sidebardata, sort, order });
     }
@@ -213,10 +213,10 @@ export default function Search() {
             <label className="font-semibold">Sort:</label>
             <select
               onChange={handleChange}
-              defaultValue={"created_at_desc"}
               id="sort_order"
               className="border rounded-lg p-3"
             >
+              <option selected>Choose Sort</option>
               <option value="regularPrice_desc">Price high to low</option>
               <option value="regularPrice_asc">Price low to high</option>
               <option value="createdAt_desc">Latest</option>
