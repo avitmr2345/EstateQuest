@@ -216,7 +216,9 @@ export default function Search() {
               id="sort_order"
               className="border rounded-lg p-3"
             >
-              <option selected>Choose Sort</option>
+              <option value="createdAt_asc" selected>
+                Choose Sort
+              </option>
               <option value="regularPrice_desc">Price high to low</option>
               <option value="regularPrice_asc">Price low to high</option>
               <option value="createdAt_desc">Latest</option>
