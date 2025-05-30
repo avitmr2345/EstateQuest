@@ -1,0 +1,6 @@
+"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+First we need to install backend node packages, then frontend node packages and after that we build the frontend which is using vite. When we use npm run build on Render build command the index.js file will run the build script.
+
+When we build the frontend, we will get an extra folder inside the frontend i.e. 'dist'. If we use npm create-react-app appName it's gonna be 'build'.
+
+For any requests other than /api/* this is gonna send the index.html file on the webpage.
